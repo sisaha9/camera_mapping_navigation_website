@@ -7,8 +7,6 @@
   }); // end of document ready
 })(jQuery); // end of jQuery name space
 
-$(".dropdown-trigger").dropdown();
-
 var content = {
 	"nav_hidden_content1": "The data is collected using a ROS utility called <a href=http://wiki.ros.org/rosbag>rosbag</a>. Since the camera outputs images at 60FPS we throttle it down with the help of <a href=http://wiki.ros.org/topic_tools/throttle>topic_tools throttle</a> ROS package. This basically diverts the camera stream into a new topic that only outputs at a frequency of 1Hz. Once this is setup we run the throttle package to divert the input and use rosbag to record the diverted input giving us unique images across the track and reducing file size taken by a given lap. The images are then extracted from this bag file using the <a href=http://wiki.ros.org/rosbag/Tutorials/Exporting%20image%20and%20video%20data>image_view</a> ROS package. Once converted into images we now have a part of our dataset ready",
 	"nav_hidden_content2": "The dataset is labelled in the COCO JSON format with the help of <a href=https://www.makesense.ai/>MakeSenseAI</a>. We labelled around 2 laps of data. Since we ran a model that was pretrained on the COCO dataset we believed it would be sufficient. The images were cropped so that the top half is not visible during training and inference. This reduced a lot of the noise from the background",
@@ -22,9 +20,6 @@ function nav_hidden_content(elem_id) {
   let description = document.getElementById(elem_id+"_p");
   if (button.innerText.toLowerCase() == "arrow_downward") {
   	button.innerText = "arrow_upward";
-  	// if (elem_id == "nav_hidden_content1") {
-  	// 	description.innerText = ""
-  	// }
   	description.innerHTML = content[elem_id];
   }
   else {
@@ -32,3 +27,6 @@ function nav_hidden_content(elem_id) {
   	description.innerText = "";
   }
 }
+
+
+$(".dropdown-trigger").dropdown();
