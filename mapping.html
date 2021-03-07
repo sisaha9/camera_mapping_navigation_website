@@ -73,7 +73,7 @@
         <br><br>
         <h1 class="header center white-text text-lighten-2">Mapping and Localization</h1>
         <div class="row center">
-          <h5 class="header col s12 light">To Be Filled</h5>
+          <h5 class="header col s12 light"><b>Uses RTABMAP- SLAM in ROS to create maps of environments</b></h5>
         </div>
         <div class="row center">
           <center>
@@ -84,7 +84,7 @@
 
       </div>
     </div>
-    <div class="parallax"><img class="responsive-img" src="imgs/dummy.jpg" alt="Cool AV control"></div>
+    <div class="parallax"><img class="responsive-img" src="imgs/mapping_top.png" alt="Cool AV control"></div>
   </div>
 
   <div class="container">
@@ -93,12 +93,13 @@
         <div class="col s12 m8">
           <div class="icon-block">
             <h5 class="center">Overview</h5>
-            <p class="light">To Be Filled</p>
+            <p class="light">In order for the car to navigate indoors, it requires precision within a few inches. Hence, cars can’t always rely on GPS (which provide accuracy in 1-2 meters). In this section, we aim to create a map for our car. The purpose of this is to allow the car to be able to localize(find) itself within a new environment. This map is created through a process called, SLAM (Simultaneous Localization and Mapping). We are using RTABMAP, a SLAM algorithm, to process the data for map creation through ROS</p>
           </div>
         </div>
         <div class="col s12 m4">
+          <br><br><br>
           <center>
-            <img class="responsive-img" src="imgs/dummy.jpg" alt="Dummy">
+            <img class="responsive-img" src="imgs/mapping_overview.png" alt="Dummy">
           </center>
         </div>
       </div>
@@ -112,13 +113,13 @@
       <div class="row">
         <div class="col s12 m4">
           <center>
-            <img class="responsive-img" src="imgs/dummy.jpg" alt="Dummy">
+            <img class="responsive-img" src="imgs/mapping_ed.png" alt="Dummy">
           </center>
         </div>
         <div class="col s12 m8">
           <div class="icon-block">
             <h5 class="center">Experiment Design</h5>
-            <p class="light">To Be Filled</p>
+            <p class="light">We drive our car manually around the track while it receives image data from our RGB-D camera. We made sure to drive the car around slowly so that it can accurately process each image so that the car is able to map and localize simultaneously</p>
           </div>
         </div>
       </div>
@@ -133,13 +134,18 @@
         <div class="col s12 m8">
           <div class="icon-block">
             <h5 class="center">Dataset</h5>
-            <p class="light">To Be Filled</p>
+            <p class="light">In the dataset, we have image data and position data. In each image, we are able to see key points on them, and when the algorithm is able to find a match between two points on two different images, it draws a blue line to connect the two points for a loop closure. Along with image data, we have positional data such as the x,y,z positions along with wheel rotational angles</p>
           </div>
         </div>
         <div class="col s12 m4">
+          <br><br><br>
           <center>
-            <img class="responsive-img" src="imgs/dummy.jpg" alt="Dummy">
+            <img class="responsive-img" src="imgs/mapping_dataset.png" alt="Dummy">
           </center>
+        </div>
+        <div class="col s12 m12">
+          <p id="mapping_hidden_content1_p" class="light"></p>
+          <a id="mapping_hidden_content1" class="btn-floating btn-large waves-effect waves-light red left" onclick="hidden_content(this.id)"><i class="material-icons">arrow_downward</i></a>
         </div>
       </div>
     </div>
@@ -152,14 +158,18 @@
       <div class="row">
         <div class="col s12 m4">
           <center>
-            <img class="responsive-img" src="imgs/dummy.jpg" alt="Dummy">
+            <img class="responsive-img" src="imgs/mapping_analysis.png" alt="Dummy">
           </center>
         </div>
         <div class="col s12 m8">
           <div class="icon-block">
             <h5 class="center">Analysis</h5>
-            <p class="light">To Be Filled</p>
+            <p class="light">We will be using the Absolute Trajectory Error (ATE) as our main metric to evaluate our mapping. This metric measures the distance between the path created by the sensors and the true path. Using this, we’re able to see how close our mapping is to the real world</p>
           </div>
+        </div>
+        <div class="col s12 m12">
+          <p id="mapping_hidden_content2_p" class="light"></p>
+          <a id="mapping_hidden_content2" class="btn-floating btn-large waves-effect waves-light red right" onclick="hidden_content(this.id)"><i class="material-icons">arrow_downward</i></a>
         </div>
       </div>
     </div>
@@ -170,16 +180,47 @@
   <div class="container">
     <div class="section">
       <div class="row">
-        <div class="col s12 m8">
+        <div class="col s12 m12">
           <div class="icon-block">
             <h5 class="center">Conclusion</h5>
-            <p class="light">To Be Filled</p>
+            <p class="light">We now have a map of the environment and our car is able to properly localize itself. The following images are 2D and 3D visualizations of the track. In the 2D image, black spots are areas in which there are objects in them, white are areas where the car has seen, and the dark gray are areas in which the car hasn’t seen yet.</p>
           </div>
         </div>
-        <div class="col s12 m4">
+      </div>
+      <br><br>
+      <div class="row">
+        <div class="col s12 m6">
           <center>
-            <img class="responsive-img" src="imgs/dummy.jpg" alt="Dummy">
+            <img class="responsive-img" src="imgs/mapping_conc2d.png" alt="Dummy">
           </center>
+        </div>
+        <div class="col s12 m6">
+          <center>
+            <img class="responsive-img" src="imgs/mapping_conc3d.png" alt="Dummy">
+          </center>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <hr>
+
+  <div class="container">
+    <div class="section">
+      <div class="row">
+        <div class="col s12">
+          <h5 class="center">Demo Videos</h5>
+        </div>
+        <br><br><br><br>
+        <div class="col s12 m6">
+          <video class="responsive-video" controls>
+            <source src="vids/map3d.mp4" type="video/mp4">
+          </video>
+        </div>
+        <div class="col s12 m6">
+          <video class="responsive-video" controls>
+            <source src="vids/rtabmap_demo.mp4" type="video/mp4">
+          </video>
         </div>
       </div>
     </div>
