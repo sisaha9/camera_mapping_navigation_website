@@ -93,7 +93,7 @@
         <div class="col s12 m8">
           <div class="icon-block">
             <h5 class="center">Overview</h5>
-            <p class="light">In this section, we aim to tune our depth camera to address its light sensitivity problems. Natural sunlight raises a problem for our car since it cannot properly filter the mask during the daylight setting. We use one of ROS plugins in conjunction with Intel Realsense Depth D455 Camera node to experiment with different camera configurations. Our tuning work involves both finding the best tuned configuration that sets off light intensity and validating the runtime performance of the car running one lap around the track. </p>
+            <p class="light">In this section, we aim to tune our depth camera to address its light sensitivity problems. Natural sunlight raises a problem for our car since it cannot properly filter the mask during the daylight setting. We use one of ROS plugins in conjunction with Intel Realsense Depth D455 Camera node to experiment with different camera configurations. Our tuning work involves both finding the best tuned configuration that sets off light intensity and validating the realtime performance of the car running one lap around the track. </p>
           </div>
         </div>
         <div class="col s12 m4">
@@ -139,7 +139,7 @@
         <div class="col s12 m8">
           <div class="icon-block">
             <h5 class="center">Dataset</h5>
-            <p class="light">We export a single lap of images recorded with ROS and compare that with other sets of a single lap’s images. The images are read in with the Python OpenCV package. A single image which closely matches that of another set in position and appearance of the track environment are compared together to determine how similar they are in terms of pixels, luminance, contrast and structure. The entire lap set of approximately 60~70 images are compared with sets before and after tuning, to observe the variability of luminescence across runtime.</p>
+            <p class="light">We export a single lap of images recorded with ROS and compare that with other sets of a single lap’s images. The images are read in with the Python OpenCV package. A single image which closely matches that of another set in position and appearance of the track environment are compared together to determine how similar they are in terms of pixels, luminance, contrast and structure. The entire lap set of approximately 60~70 images are compared with sets before and after tuning, to observe the variability of luminescence in realtime.</p>
           </div>
         </div>
         <div class="col s12 m4">
@@ -188,7 +188,7 @@
         <div class="col s12 m8">
           <div class="icon-block">
             <h5 class="center">Conclusion</h5>
-            <p class="light">The image on the right shows our best tuned result, which was significantly better compared to our poor baseline figures of SSIM = 0.5922, MSE = 19243. Using this best tuned configuration in our self-implementation of runtime performance, the returned values were 8.065 for our default image set and 6.907 for the tuned image set, giving us the similarity level of 86%</p>
+            <p class="light">The image on the right shows our best tuned result, which was significantly better compared to our poor baseline figures of SSIM = 0.5922, MSE = 19243. Using this best tuned configuration in our self-implementation of realtime performance, the returned values were 8.065 for our default image set and 6.907 for the tuned image set, giving us the similarity level of 86%</p>
           </div>
         </div>
         <div class="col s12 m4">
